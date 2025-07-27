@@ -223,6 +223,9 @@ docker-compose.override.yml
 
 # MongoDB
 dump/
+mongodb_data/
+mongodb_logs/
+*.mongodb
 
 # ================================
 # LOGS E ARQUIVOS TEMPORÁRIOS
@@ -248,6 +251,44 @@ lcov.info
 
 # nyc test coverage
 .nyc_output
+
+# ================================
+# PROJETO ESPECÍFICO
+# ================================
+# Arquivos de configuração local
+config.local.py
+settings.local.py
+
+# Arquivos de teste temporários
+test_*.tmp
+temp_test_*
+
+# Arquivos de cache do projeto
+.cache/
+.parcel-cache/
+
+# Arquivos de saída específicos do projeto
+output/
+results/
+reports/
+
+# Arquivos temporários do projeto
+temp/
+tmp/
+.tmp/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Arquivos de dump de banco
+*.dump
+*.bson
+
+# Arquivos de configuração de IDE específicos
+.vscode/settings.json
+.idea/workspace.xml
 
 # ================================
 # OUTROS ARQUIVOS ESPECÍFICOS
@@ -279,21 +320,28 @@ celerybeat.pid
 # mkdocs documentation
 /site
 
-# Arquivos temporários do projeto
-temp/
-tmp/
-.tmp/
+# Arquivos de lock específicos
+poetry.lock.bak
+package-lock.json.bak
+yarn.lock.bak
 
-# Backup files
-*.bak
-*.backup
-*.old
+# Arquivos de ambiente específicos
+.env.test
+.env.development
+.env.staging
+.env.production
 
-# Arquivos de saída específicos do projeto
-output/
-results/
-reports/
+# Arquivos de log específicos do projeto
+app.log
+error.log
+access.log
+debug.log
 
-# Cache de ferramentas
-.cache/
-.parcel-cache/
+# Arquivos de cache de testes
+.pytest_cache/
+.coverage.*
+htmlcov/
+
+# Arquivos de configuração local
+local_config.py
+local_settings.py

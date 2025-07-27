@@ -1,17 +1,13 @@
 from fastapi import FastAPI
 
-from store.core.config import settings
+app = FastAPI(title="Store API", version="0.0.1")
 
+# Importar e incluir as rotas após a criação do app
+try:
+    from store.routers import api_router
 
-class App(FastAPI):
-    def __init__(self, *args, **kwargs) -> None:
-        super().__init__(
-            *args,
-            **kwargs,
-            version="0.0.1",
-            title=settings.PROJECT_NAME,
-            root_path=settings.ROOT_PATH
-        )
-
-
-app = App()
+    app.include_router(api_router)
+    print(f"✅ Rotas incluídas com sucesso. Total: {len(app.routes)} rotas")
+except Exception as e:
+    print(f"❌ Erro ao incluir rotas: {e}")
+    raise e
